@@ -1,0 +1,12 @@
+- Remove python overhead from the looping through training samples by instead vectorizing the code via PyTorch, also run this on GPUs with CUDA kernel
+
+- Adjust the one-hot label matrix in cost function to use the following: y_mtx = np.eye(num_labels)[y.astype(int).flatten()]
+
+- Currently the output isnt using softmax, bad overall, use the softmax ontop of sigmoid. 
+Although the network will produce the same predictions no matter what we do here it is good for interpretability of confidence in guesses when using softmax
+
+- We currently use full batches, use SGD instead?
+
+- Plotting, we currently plot every iteration, is that necessary?
+
+- Change bit precission from 32 bit and use bfloat 16 instead.
